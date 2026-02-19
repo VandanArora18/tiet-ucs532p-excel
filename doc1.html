@@ -1,0 +1,51 @@
+Automated Object Dimension Measurement System
+1. Existing Similar Work 
+• Industrial 3D Scanners and CMM Machines:
+Coordinate Measuring Machines (CMM) and laser scanners provide highly accurate 3D measurements. However, they are expensive, require trained operators, and are impractical for small businesses or casual users.
+
+• Mobile Measurement Applications:
+Apps like camera-based AR measurement tools use depth sensors or LiDAR (in high-end devices) to estimate object dimensions. While convenient, they often require specific hardware and may produce inconsistent accuracy in non-ideal lighting or cluttered scenes.
+
+• Warehouse Parcel Dimensioning Systems:
+Logistics companies use conveyor‑based dimensioning systems with multiple cameras and infrared sensors. These setups deliver precise parcel measurements but involve high infrastructure costs and fixed installations.
+
+
+Limitations in Existing Systems:
+High cost, specialized hardware dependency, limited accessibility, and lack of portability make existing solutions less suitable for small-scale or everyday use.
+
+2.Possible Techniques for Features 
+• Object Detection:
+Technique: Contour detection / Bounding box detection using OpenCV.
+ Lightweight, training-free, and sufficient for identifying measurable objects in controlled environments.
+
+• Reference Object Detection:
+Technique: Shape detection + Aspect ratio filtering.
+ Reference objects like cards or markers have fixed geometric shapes, making them easy to detect without deep learning.
+
+• Scale Calibration:
+Technique: Pixel-to-metric conversion using known reference dimensions.
+Provides direct real‑world measurement from 2D images with minimal computation.
+
+• Perspective Correction:
+Technique: Homography / Perspective transformation.
+Corrects tilted or angled images to obtain top‑down measurement accuracy.
+
+• Edge Detection & Segmentation:
+Technique: Canny edge detection + Morphological operations.
+Ensures precise boundary extraction for accurate dimension estimation.
+
+• Defect Detection:
+Technique: Convex hull analysis and solidity calculation.
+Identifies dents, cuts, or irregularities in object shape.
+
+• Measurement Extraction:
+Technique: Minimum Area Rectangle (Rotated Bounding Box).
+Handles rotated objects and provides exact length and width.
+
+• Hidden Corner Measurement :
+Technique: Canny edge detection + Hough Transform
+The system detects visible edges of the object using edge detection. Then it finds straight lines along the object’s sides using line detection. Even if the corner is hidden, the system extends those detected lines. The point where the two extended lines intersect is estimated as the missing corner.
+Visible edges → Extend lines → Find intersection → Estimate hidden corner.
+
+
+
