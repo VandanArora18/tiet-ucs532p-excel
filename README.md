@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">📐 AutoDimenSys</h1>
+  <h1 align="center">📐 Automated Dimensioning System</h1>
 
   <p align="center">
     <strong>Camera-Based Automated Object Dimension Measurement Using Classical Computer Vision</strong>
@@ -62,3 +62,95 @@ The system enables detection and analysis of:
 ---
 
 ## 🏗 Processing Architecture
+
+
+User Interface → Image / Video Capture → Reference Object Detection → Scale Calibration →Image Enhancement → Object Isolation → Dimension Extraction → Defect Analysis → Visualization & Report Output
+
+### Operational Flow
+
+1. **Input Acquisition** — Image captured using camera or uploaded by user  
+2. **Reference Identification** — Known object detected for scale estimation  
+3. **Calibration Stage** — Pixel-to-real-world conversion calculated  
+4. **Image Processing** — Noise reduction and edge enhancement applied  
+5. **Object Isolation** — Contours extracted from scene  
+6. **Measurement Engine** — Bounding geometry computes dimensions  
+7. **Inspection Module** — Detects structural irregularities  
+8. **Output Rendering** — Annotated measurements generated
+
+---
+
+## 🛠 Technology Stack
+
+| Component | Tools Used |
+|---|---|
+| Programming Language | Python |
+| Computer Vision | OpenCV |
+| Numerical Processing | NumPy |
+| Classical ML | Scikit-learn |
+| Interface | Streamlit |
+| Execution | Local Processing |
+
+---
+
+## 🔬 Working Methodology
+
+### Image Processing Strategy
+
+Instead of relying on complex learning architectures, the system analyzes geometric and visual properties extracted from captured images.
+
+| Stage | Technique Applied |
+|---|---|
+| Preprocessing | Grayscale conversion, smoothing |
+| Edge Detection | Canny Edge Algorithm |
+| Object Detection | Contour extraction |
+| Calibration | Reference dimension mapping |
+| Measurement | Rotated bounding rectangle |
+| Defect Detection | Convex hull comparison |
+
+### Measurement Logic
+
+The reference object establishes spatial scale within the image. Once calibrated, object contours are analyzed to determine accurate dimensional boundaries even under rotated placement conditions.
+
+Irregular contour deviations are further analyzed to identify possible dents or deformation.
+
+---
+
+## 📊 Performance Analysis
+
+System validation involves comparison between automated measurements and manual measurements obtained using physical tools.
+
+| Metric | Considered |
+|---|---|
+| Measurement Accuracy | ✅ |
+| Stability Across Frames | ✅ |
+| Processing Time | ✅ |
+| Error Margin Analysis | ✅ |
+
+Target performance focuses on maintaining reliable results within controlled capture environments.
+
+---
+
+## ⚠️ Constraints
+
+- Sensitive to extreme lighting variations
+- Requires visible reference object
+- Severe occlusion affects estimation
+- Camera angle impacts calibration accuracy
+
+---
+
+## 🔮 Future Directions
+
+- 📦 Conveyor-based industrial inspection
+- 📱 Mobile device compatibility
+- 🏠 Indoor spatial planning integration
+- ⚡ Faster real-time processing
+- 📊 Multi-object simultaneous measurement
+
+---
+
+## 🎓 Academic Context
+
+This project demonstrates practical implementation of classical computer vision concepts to solve industrial measurement challenges while maintaining computational efficiency and accessibility.
+
+---
