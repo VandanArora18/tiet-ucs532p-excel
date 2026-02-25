@@ -16,7 +16,7 @@
 [Evaluation](#evaluation) • 
 [Limitations](#limitations) • 
 [Future Scope](#future-scope) • 
-[License](#license)
+
 
 ---
 
