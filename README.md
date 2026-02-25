@@ -1,80 +1,144 @@
-# Automated Object Dimension Measurement System
+# 📐 Automated Dimensioning System
+
+### Camera-Based Real-World Object Measurement Using Classical Computer Vision
 
 ---
 
-## 1. Existing Similar Work
+## 🔎 Quick Navigation
 
-### Industrial 3D Scanners and CMM Machines
-Coordinate Measuring Machines (CMM) and laser scanners provide highly accurate 3D measurements. However, they are expensive, require trained operators, and are impractical for small businesses or casual users.
-
-### Mobile Measurement Applications
-Apps like camera-based AR measurement tools use depth sensors or LiDAR (in high-end devices) to estimate object dimensions. While convenient, they often require specific hardware and may produce inconsistent accuracy in non-ideal lighting or cluttered scenes.
-
-### Warehouse Parcel Dimensioning Systems
-Logistics companies use conveyor-based dimensioning systems with multiple cameras and infrared sensors. These setups deliver precise parcel measurements but involve high infrastructure costs and fixed installations.
-
----
-
-### Limitations in Existing Systems
-
-- High cost  
-- Specialized hardware dependency  
-- Limited accessibility  
-- Lack of portability  
-
-These limitations make existing solutions less suitable for small-scale or everyday use.
+[About](#about) • 
+[Problem](#problem) • 
+[Features](#features) • 
+[Architecture](#architecture) • 
+[Workflow](#workflow) • 
+[Tech Stack](#tech-stack) • 
+[Methodology](#methodology) • 
+[Evaluation](#evaluation) • 
+[Limitations](#limitations) • 
+[Future Scope](#future-scope) • 
+[License](#license)
 
 ---
 
-## 2. Possible Techniques for Features
+## 📘 About
 
-### Object Detection
-**Technique:** Contour detection / Bounding box detection using OpenCV  
-Lightweight, training-free, and sufficient for identifying measurable objects in controlled environments.
+The Automated Dimensioning System is a computer vision based solution designed to measure real-world object dimensions using a standard camera. The system converts pixel measurements obtained from images or live video feeds into physical units such as centimeters or millimeters.
 
----
+Traditional measurement approaches depend heavily on manual tools or expensive industrial scanners. This project introduces a lightweight and affordable alternative by applying classical computer vision techniques for scale calibration, object isolation, and geometric measurement.
 
-### Reference Object Detection
-**Technique:** Shape detection + Aspect ratio filtering  
-Reference objects like cards or markers have fixed geometric shapes, making them easy to detect without deep learning.
+The system aims to provide accessible measurement automation suitable for logistics, manufacturing inspection, retail inventory management, and everyday applications.
 
 ---
 
-### Scale Calibration
-**Technique:** Pixel-to-metric conversion using known reference dimensions  
-Provides direct real-world measurement from 2D images with minimal computation.
+## ⚠️ Problem
+
+Accurate object measurement is essential in industries such as shipping, manufacturing, and inventory management. However, manual measurement methods are slow and often introduce inconsistencies due to human error.
+
+Industrial dimensioning systems provide automation but require costly hardware installations and controlled environments. Small businesses and MSMEs often cannot afford such solutions.
+
+This project addresses the need for a cost-effective measurement system capable of working with commonly available cameras while maintaining reliable accuracy.
 
 ---
 
-### Perspective Correction
-**Technique:** Homography / Perspective transformation  
-Corrects tilted or angled images to obtain top-down measurement accuracy.
+## ✨ Features
+
+- Automatic object dimension estimation
+- Reference object based scale calibration
+- Perspective distortion correction
+- Rotated object handling
+- Surface defect indication
+- Area and volume estimation
+- Annotated measurement visualization
+- Exportable measurement reports
+- Works with webcam or smartphone camera
+
+---
+## 🏗 Architecture
+User Interface
+↓
+Image / Video Capture
+↓
+Reference Object Detection
+↓
+Scale Calibration
+↓
+Image Preprocessing
+↓
+Object Detection
+↓
+Measurement Extraction
+↓
+Defect Detection
+↓
+Visualization & Report Generation
 
 ---
 
-### Edge Detection & Segmentation
-**Technique:** Canny edge detection + Morphological operations  
-Ensures precise boundary extraction for accurate dimension estimation.
+## 🔄 Workflow
+
+The system begins by capturing an image containing both the target object and a known reference object. After acquisition, preprocessing techniques enhance image quality and improve edge visibility.
+
+The reference object is detected first to determine the pixel-to-real-world scale. Contour detection is then applied to isolate measurable objects within the scene. Geometric bounding techniques calculate dimensions even when objects are rotated.
+
+Finally, measurement annotations are displayed on the image and results can be exported for documentation or inspection purposes.
 
 ---
 
-### Defect Detection
-**Technique:** Convex hull analysis and solidity calculation  
-Identifies dents, cuts, or irregularities in object shape.
+## 🛠 Tech Stack
+
+| Layer | Technology |
+|------|------------|
+| Programming Language | Python |
+| Computer Vision | OpenCV |
+| Numerical Computing | NumPy |
+| Machine Learning | Scikit-learn |
+| Interface | Streamlit / Web Interface |
 
 ---
 
-### Measurement Extraction
-**Technique:** Minimum Area Rectangle (Rotated Bounding Box)  
-Handles rotated objects and provides exact length and width.
+## 🔬 Methodology
+
+The system relies entirely on classical computer vision techniques to maintain efficiency and interpretability.
+
+Image preprocessing includes grayscale conversion and noise reduction to improve boundary clarity. Edge detection algorithms identify object outlines, while contour filtering extracts measurable shapes.
+
+Perspective transformation corrects angled views, ensuring accurate measurement results. Dimensions are calculated using rotated bounding box geometry derived from detected contours.
+
+Defect detection is implemented using convex hull comparison and solidity analysis to identify deformation or structural irregularities.
 
 ---
 
-### Hidden Corner Measurement
-**Technique:** Canny edge detection + Hough Transform  
+## 📊 Evaluation
 
-The system detects visible edges of the object using edge detection. Then it finds straight lines along the object’s sides using line detection. Even if the corner is hidden, the system extends those detected lines. The point where the two extended lines intersect is estimated as the missing corner.
+System performance is evaluated under controlled environments by comparing automated measurements with manual measurements.
 
-**Flow:**  
-Visible edges → Extend lines → Find intersection → Estimate hidden corner
+Evaluation focuses on:
 
+- Measurement accuracy
+- Detection consistency
+- Processing speed
+- Error percentage comparison
+
+The system targets reliable measurement performance suitable for practical deployment scenarios.
+
+---
+
+## ⚠️ Limitations
+
+- Performance affected by poor lighting conditions
+- Requires visible reference object
+- Partial object occlusion may reduce accuracy
+- Camera alignment influences measurement precision
+
+---
+
+## 🚀 Future Scope
+
+Future improvements may include enhanced real-time processing, improved robustness under varying lighting conditions, and expanded spatial planning capabilities.
+
+Potential extensions include conveyor-based inspection systems and mobile deployment for portable measurement applications.
+
+---
+
+
+## 🏗 Architecture
