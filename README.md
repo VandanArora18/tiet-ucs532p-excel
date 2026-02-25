@@ -54,6 +54,7 @@ This project addresses the need for a cost-effective measurement system capable 
 
 ---
 ## 🏗 Architecture
+
 User Interface
 ↓
 Image / Video Capture
@@ -141,4 +142,3 @@ Potential extensions include conveyor-based inspection systems and mobile deploy
 ---
 
 
-## 🏗 Architecture
