@@ -57,7 +57,7 @@ This project addresses the need for a cost-effective measurement system capable 
 
 The Automated Dimensioning System follows a modular computer vision pipeline where captured images are processed step-by-step to obtain accurate real-world measurements.
 
-```mermaid
+
 flowchart LR
 
 A[User Interface] --> B[Image / Video Capture]
