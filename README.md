@@ -1,147 +1,64 @@
-# 📐 Automated Dimensioning System
+<p align="center">
+  <h1 align="center">📐 AutoDimenSys</h1>
 
-### Camera-Based Real-World Object Measurement Using Classical Computer Vision
+  <p align="center">
+    <strong>Camera-Based Automated Object Dimension Measurement Using Classical Computer Vision</strong>
+  </p>
 
----
-
-## 🔎 Quick Navigation
-
-[About](#about) • 
-[Problem](#problem) • 
-[Features](#features) • 
-[Architecture](#architecture) • 
-[Workflow](#workflow) • 
-[Tech Stack](#tech-stack) • 
-[Methodology](#methodology) • 
-[Evaluation](#evaluation) • 
-[Limitations](#limitations) • 
-[Future Scope](#future-scope) • 
-
-
----
-
-## 📘 About
-
-The Automated Dimensioning System is a computer vision based solution designed to measure real-world object dimensions using a standard camera. The system converts pixel measurements obtained from images or live video feeds into physical units such as centimeters or millimeters.
-
-Traditional measurement approaches depend heavily on manual tools or expensive industrial scanners. This project introduces a lightweight and affordable alternative by applying classical computer vision techniques for scale calibration, object isolation, and geometric measurement.
-
-The system aims to provide accessible measurement automation suitable for logistics, manufacturing inspection, retail inventory management, and everyday applications.
+  <p align="center">
+    <a href="#-overview">Overview</a> •
+    <a href="#-system-capabilities">Capabilities</a> •
+    <a href="#-processing-architecture">Architecture</a> •
+    <a href="#-technology-stack">Tech Stack</a> •
+    <a href="#-working-methodology">Methodology</a> •
+    <a href="#-performance-analysis">Evaluation</a> •
+    <a href="#-constraints">Limitations</a> •
+    <a href="#-future-directions">Future Scope</a>
+  </p>
+</p>
 
 ---
 
-## ⚠️ Problem
+## 📘 Overview
 
-Accurate object measurement is essential in industries such as shipping, manufacturing, and inventory management. However, manual measurement methods are slow and often introduce inconsistencies due to human error.
+**AutoDimenSys** is a computer vision driven measurement system developed to estimate real-world object dimensions using standard imaging devices such as webcams or smartphone cameras.
 
-Industrial dimensioning systems provide automation but require costly hardware installations and controlled environments. Small businesses and MSMEs often cannot afford such solutions.
+The system removes dependency on manual measuring tools and expensive industrial scanners by applying geometric analysis and reference-based calibration techniques. By detecting a known reference object placed near the target item, the system converts pixel distances into accurate physical measurements.
 
-This project addresses the need for a cost-effective measurement system capable of working with commonly available cameras while maintaining reliable accuracy.
-
----
-
-## ✨ Features
-
-- Automatic object dimension estimation
-- Reference object based scale calibration
-- Perspective distortion correction
-- Rotated object handling
-- Surface defect indication
-- Area and volume estimation
-- Annotated measurement visualization
-- Exportable measurement reports
-- Works with webcam or smartphone camera
-
----
-## 🏗 Architecture
-
-The Automated Dimensioning System follows a modular computer vision pipeline where captured images are processed step-by-step to obtain accurate real-world measurements.
-
-
-flowchart LR
-
-A[User Interface] --> B[Image / Video Capture]
-
-B --> C[Reference Object Detection]
-
-C --> D[Scale Calibration]
-
-D --> E[Image Preprocessing]
-
-E --> F[Object Detection & Isolation]
-
-F --> G[Measurement Extraction]
-
-G --> H[Defect Detection]
-
-H --> I[Visualization & Report Generation]
+This solution is particularly useful for logistics validation, manufacturing inspection, retail inventory verification, and digital space organization.
 
 ---
 
-## 🔄 Workflow
+## 🎯 Motivation
 
-The system begins by capturing an image containing both the target object and a known reference object. After acquisition, preprocessing techniques enhance image quality and improve edge visibility.
+Manual inspection and measurement processes often introduce inconsistencies due to fatigue and estimation errors. Small industries and MSMEs frequently rely on human inspection for parcel sizing or product validation, which reduces efficiency during repetitive operations.
 
-The reference object is detected first to determine the pixel-to-real-world scale. Contour detection is then applied to isolate measurable objects within the scene. Geometric bounding techniques calculate dimensions even when objects are rotated.
-
-Finally, measurement annotations are displayed on the image and results can be exported for documentation or inspection purposes.
+Although automated dimensioning solutions exist, they typically depend on laser sensors or specialized setups that increase operational cost. This project focuses on creating an affordable alternative capable of operating using commonly available cameras.
 
 ---
 
-## 🛠 Tech Stack
+## ✨ System Capabilities
 
-| Layer | Technology |
-|------|------------|
-| Programming Language | Python |
-| Computer Vision | OpenCV |
-| Numerical Computing | NumPy |
-| Machine Learning | Scikit-learn |
-| Interface | Streamlit / Web Interface |
+| ✅ Supported Functions | 🚫 Outside Scope |
+|---|---|
+| Real-world dimension estimation | 3D laser scanning |
+| Reference-based calibration | Specialized depth sensors |
+| Rotated object measurement | Internal structure analysis |
+| Surface irregularity indication | Material composition detection |
+| Area and volume approximation | Precision metrology replacement |
+| Visual measurement annotation | Permanent cloud storage |
 
----
+### Measurement Functions
 
-## 🔬 Methodology
+The system enables detection and analysis of:
 
-The system relies entirely on classical computer vision techniques to maintain efficiency and interpretability.
-
-Image preprocessing includes grayscale conversion and noise reduction to improve boundary clarity. Edge detection algorithms identify object outlines, while contour filtering extracts measurable shapes.
-
-Perspective transformation corrects angled views, ensuring accurate measurement results. Dimensions are calculated using rotated bounding box geometry derived from detected contours.
-
-Defect detection is implemented using convex hull comparison and solidity analysis to identify deformation or structural irregularities.
-
----
-
-## 📊 Evaluation
-
-System performance is evaluated under controlled environments by comparing automated measurements with manual measurements.
-
-Evaluation focuses on:
-
-- Measurement accuracy
-- Detection consistency
-- Processing speed
-- Error percentage comparison
-
-The system targets reliable measurement performance suitable for practical deployment scenarios.
+- Object length and width estimation
+- Rotated object boundary handling
+- Parcel dimension verification
+- Shape consistency monitoring
+- Surface deformation indication
+- Measurement visualization overlays
 
 ---
 
-## ⚠️ Limitations
-
-- Performance affected by poor lighting conditions
-- Requires visible reference object
-- Partial object occlusion may reduce accuracy
-- Camera alignment influences measurement precision
-
----
-
-## 🚀 Future Scope
-
-Future improvements may include enhanced real-time processing, improved robustness under varying lighting conditions, and expanded spatial planning capabilities.
-
-Potential extensions include conveyor-based inspection systems and mobile deployment for portable measurement applications.
-
----
-
-
+## 🏗 Processing Architecture
