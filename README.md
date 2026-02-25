@@ -55,23 +55,26 @@ This project addresses the need for a cost-effective measurement system capable 
 ---
 ## 🏗 Architecture
 
-User Interface
-↓
-Image / Video Capture
-↓
-Reference Object Detection
-↓
-Scale Calibration
-↓
-Image Preprocessing
-↓
-Object Detection
-↓
-Measurement Extraction
-↓
-Defect Detection
-↓
-Visualization & Report Generation
+The Automated Dimensioning System follows a modular computer vision pipeline where captured images are processed step-by-step to obtain accurate real-world measurements.
+
+```mermaid
+flowchart LR
+
+A[User Interface] --> B[Image / Video Capture]
+
+B --> C[Reference Object Detection]
+
+C --> D[Scale Calibration]
+
+D --> E[Image Preprocessing]
+
+E --> F[Object Detection & Isolation]
+
+F --> G[Measurement Extraction]
+
+G --> H[Defect Detection]
+
+H --> I[Visualization & Report Generation]
 
 ---
 
